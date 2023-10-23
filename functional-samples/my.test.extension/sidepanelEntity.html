@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .btn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+      
+      .dropbtn:hover, .dropbtn:focus {
+        background-color: #2980B9;
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      
+      .dropdown-content div {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      
+      .dropdown a:hover {background-color: #ddd;}
+      
+      .show {display: block;}
+      </style>
+  </head>
+  <body>
+    <button id="getInfo" class="btn">Test</button>
+    <button id="openModelsPage" class="btn">Models Page</button> 
+
+
+    <br>
+    <br>
+    <div class="dropdown">
+      <button id = "adminConsoleButtons" class="btn">Admin Console Links</button>
+      <div id="adminConsoleDropdown" class="dropdown-content">
+        <div id="integrations/smart_apply_config" class ="dropBtn">Smart Apply Config</div>
+        <div id="integrations/ats" class ="dropBtn">ATS</div>
+        <div id="integrations/diagnostics" class="dropBtn">Diagnostics</div>
+        <div id="integrations/admin_manual_sync" class="dropBtn">Dry Run Sync Tool</div>
+        <div id="integrations/manage_users" class="dropBtn">Manage Users</div>
+        <div id="integrations/support_data_access_config" class="dropBtn">Support Data Access</div>
+      </div>
+    </div>
+    <script src="/scripts/code.jquery.com_jquery-3.7.0.min.js"></script>
+    <script src="gatherData.js"></script>
+    <script type = "text/javascript" src="/scripts/sidePanelFrontEnd.js"></script>
+  </body>
+</html>
