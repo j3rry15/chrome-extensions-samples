@@ -11,9 +11,7 @@
         cursor: pointer;
       }
       
-      .dropbtn:hover, .dropbtn:focus {
-        background-color: #2980B9;
-      }
+
       
       .dropdown {
         position: relative;
@@ -30,38 +28,44 @@
         z-index: 1;
       }
       
-      .dropdown-content div {
+      .dropdown-content a {
         color: black;
         padding: 12px 16px;
         text-decoration: none;
         display: block;
       }
       
-      .dropdown a:hover {background-color: #ddd;}
+      /* .dropdown a:hover {background-color: #ddd;} */
       
       .show {display: block;}
+      
+      .dropBtn:hover{
+        background-color: #3498DB;
+        transition: 0.2s;
+      }
       </style>
   </head>
   <body>
-    <button id="getInfo" class="btn">Test</button>
+    <!-- <button id="getInfo" class="btn">Test</button> -->
+    <!-- <a href="/testinglink" target="blank"><button id="test" class="btn">Test link</button></a> -->
     <button id="openModelsPage" class="btn">Models Page</button> 
 
 
     <br>
     <br>
     <div class="dropdown">
-      <button id = "adminConsoleButtons" class="btn">Admin Console Links</button>
+      <button id = "adminConsoleButtons" class="btn">Top Admin Console Links</button>
       <div id="adminConsoleDropdown" class="dropdown-content">
-        <div id="integrations/smart_apply_config" class ="dropBtn">Smart Apply Config</div>
-        <div id="integrations/ats" class ="dropBtn">ATS</div>
-        <div id="integrations/diagnostics" class="dropBtn">Diagnostics</div>
-        <div id="integrations/admin_manual_sync" class="dropBtn">Dry Run Sync Tool</div>
-        <div id="integrations/manage_users" class="dropBtn">Manage Users</div>
-        <div id="integrations/support_data_access_config" class="dropBtn">Support Data Access</div>
+        <a id="integrations/smart_apply_config" class ="dropBtn">Smart Apply Config</a>
+        <a id="integrations/ats" class ="dropBtn">ATS</a>
+        <a id="integrations/diagnostics" class="dropBtn">Diagnostics</a>
+        <a id="integrations/admin_manual_sync" class="dropBtn">Dry Run Sync Tool</a>
+        <a id="integrations/manage_users" class="dropBtn">Manage Users</a>
+        <a id="integrations/support_data_access_config" class="dropBtn">Support Data Access</a>
       </div>
     </div>
     <script src="/scripts/code.jquery.com_jquery-3.7.0.min.js"></script>
-    <script src="gatherData.js"></script>
+    <script src="/scripts/gatherData.js"></script>
     <script type = "text/javascript" src="/scripts/sidePanelFrontEnd.js"></script>
   </body>
 </html>

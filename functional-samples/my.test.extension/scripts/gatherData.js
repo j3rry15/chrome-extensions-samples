@@ -1,22 +1,22 @@
 
-let getInfo = document.getElementById("getInfo");
-getInfo.addEventListener("click", async() => {
-  chrome.storage.session.setAccessLevel({ accessLevel: 'TRUSTED_AND_UNTRUSTED_CONTEXTS' });
+// let getInfo = document.getElementById("getInfo");
+// getInfo.addEventListener("click", async() => {
+//   chrome.storage.session.setAccessLevel({ accessLevel: 'TRUSTED_AND_UNTRUSTED_CONTEXTS' });
 
-    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    await chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      function: storeVariables,
-    });
-     chrome.storage.session.get("pageTitle",({pageTitle}) => {
-      if(!document.getElementById("pageTitleTest")){
-      $("body").append("<div id = 'pageTitleTest'><p> Used for Logic to store variables between page and extension. <br> Example: PageTitle="+pageTitle+"</p><div>");
-      }else{
-        $("#pageTitleTest").replaceWith("<div id = 'pageTitleTest'><p> Used for Logic to store variables between page and extension. <br> Example: PageTitle="+pageTitle+"</p><div>");
-      }
-    }); 
+//     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+//     await chrome.scripting.executeScript({
+//       target: { tabId: tab.id },
+//       function: storeVariables,
+//     });
+//      chrome.storage.session.get("pageTitle",({pageTitle}) => {
+//       if(!document.getElementById("pageTitleTest")){
+//       $("body").append("<div id = 'pageTitleTest'><p> Used for Logic to store variables between page and extension. <br> Example: PageTitle="+pageTitle+"</p><div>");
+//       }else{
+//         $("#pageTitleTest").replaceWith("<div id = 'pageTitleTest'><p> Used for Logic to store variables between page and extension. <br> Example: PageTitle="+pageTitle+"</p><div>");
+//       }
+//     }); 
     
- });
+//  });
  
 let dataButton = document.getElementById("openModelsPage");
 dataButton.addEventListener("click", async() => {
@@ -41,7 +41,10 @@ function storeVariables() {
 
 function openModelsPage() {
   baseURL = window.location.origin
-  if (document.URL.indexOf("/profile")!=-1){
+  if (!baseURL.includes('eightfold')){
+    alert("This is not an Eightfold site, opening the models page will not work here ")
+    return
+  } else if (document.URL.indexOf("/profile")!=-1){
     model = "candidate_profile"
     term = document.URL.split('/')[4].split('?')[0]
   } else if (document.URL.indexOf("/position")!=-1){

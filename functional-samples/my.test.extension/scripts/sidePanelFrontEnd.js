@@ -1,14 +1,18 @@
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-
 document.getElementById("adminConsoleButtons").addEventListener('click', function() {
-    document.getElementById("adminConsoleDropdown").classList.toggle("show");
-  });
+  document.getElementById("adminConsoleDropdown").classList.toggle("show");
+});
+document.getElementById("adminConsoleDropdown").addEventListener('click', function() {
+  document.getElementById("adminConsoleDropdown").classList.toggle("show");
+});
 
 function openURLInCurrentPage(url) {
   window.open(window.location.origin + url, "_self");
-}
-// select all the buttons with the class name "btn"
+  document.getElementById("adminConsoleDropdown").classList.toggle("show");
+  }
+  
+// select all the buttons with the class name "dropBtn"
 const dropdownButtons = document.querySelectorAll(".dropBtn");
 
 //Add links to each of the Admin Console Items
